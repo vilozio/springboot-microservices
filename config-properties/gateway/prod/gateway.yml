@@ -1,0 +1,4 @@
+zuul:
+  routes:
+    user-app: /api/user/**
+    auth-server : /auth/**
