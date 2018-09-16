@@ -11,3 +11,14 @@ spring:
           search-locations:
             file:///home/kirill/projects/webapp-2.0/app/config-properties/{application}/{profile},
             file:///home/kirill/projects/webapp-2.0/app/config-properties/global/{profile}
+---
+spring:
+  profiles: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/vilozio/springboot-microservices/
+          search-paths:
+          - "config-properties/{application}/{profile}"
+          - "config-properties/global/{profile}"
