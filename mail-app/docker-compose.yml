@@ -1,0 +1,9 @@
+version: '3'
+services:
+  mail-app:
+    container_name: mail-app
+    build: .
+    image: kirill/webapp-mail-app
+    restart: always
+    ports:
+    - 8666:8666

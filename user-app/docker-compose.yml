@@ -1,0 +1,9 @@
+version: '3'
+services:
+  user-app:
+    container_name: user-app
+    build: .
+    image: kirill/webapp-user-app
+    restart: always
+    ports:
+    - 8667:8667

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  gateway:
+    container_name: gateway
+    build: .
+    image: kirill/webapp-gateway
+    restart: always
+    ports:
+    - 8765:8765

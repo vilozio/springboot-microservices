@@ -1,0 +1,9 @@
+version: '3'
+services:
+  eureka-discovery:
+    container_name: eureka-discovery
+    build: .
+    image: kirill/webapp-eureka-discovery
+    restart: always
+    ports:
+    - 8761:8761

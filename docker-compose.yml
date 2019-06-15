@@ -1,0 +1,57 @@
+version: '3'
+services:
+  eureka-discovery:
+    container_name: eureka-discovery
+    image: kirill/webapp-eureka-discovery
+    restart: always
+    ports:
+    - 8761:8761
+
+  config-server:
+    container_name: config-server
+    image: kirill/webapp-config-server
+    restart: always
+    depends_on:
+      - eureka-discovery
+    ports:
+    - 8888:8888
+
+  auth-server:
+    container_name: auth
+    image: kirill/webapp-auth
+    restart: always
+    depends_on:
+      - eureka-discovery
+      - config-server
+    ports:
+    - 9999:9999
+
+  gateway:
+    container_name: gateway
+    image: kirill/webapp-gateway
+    restart: always
+    depends_on:
+      - eureka-discovery
+      - config-server
+    ports:
+    - 8765:8765
+
+  user-app:
+    container_name: user-app
+    image: kirill/webapp-user-app
+    restart: always
+    depends_on:
+      - eureka-discovery
+      - config-server
+    ports:
+    - 8667:8667
+
+  mail-app:
+    container_name: mail-app
+    image: kirill/webapp-mail-app
+    restart: always
+    depends_on:
+      - eureka-discovery
+      - config-server
+    ports:
+    - 8666:8666
